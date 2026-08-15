@@ -1,0 +1,107 @@
+============================================================
+   DIGITAL KASUR - Installation Guide
+============================================================
+
+STEP 1: DATABASE SETUP
+-----------------------
+1. Login to your cPanel (digitalkasur.com/cpanel or digitalkasur.com:2083)
+2. Go to "MySQL Databases"
+3. Create a new database (if not already exists): digitalk_dk
+4. Create a MySQL user (if not already exists): digitalk_digitalkasuradmin
+5. Set password: Your existing password
+6. Add the user to the database with ALL PRIVILEGES
+7. Open phpMyAdmin
+8. Select the digitalk_dk database
+9. Click "Import" tab
+10. Upload the "database.sql" file and click "Go"
+
+IMPORTANT: This will create all necessary tables.
+The default admin login is:
+   Email: admin@digitalkasur.com
+   Password: admin123
+   (CHANGE THIS PASSWORD after first login!)
+
+
+STEP 2: UPDATE CONFIG.PHP
+---------------------------
+Open config.php and verify these values match your cPanel:
+
+   DB_HOST: 'localhost' (usually stays the same)
+   DB_NAME: Your database name
+   DB_USER: Your database username
+   DB_PASS: Your database password
+
+If your cPanel username is "digitalk", then typically:
+   DB_NAME = 'digitalk_dk'
+   DB_USER = 'digitalk_digitalkasuradmin'
+
+
+STEP 3: UPLOAD FILES
+----------------------
+1. Login to cPanel > File Manager
+2. Navigate to public_html/
+3. IMPORTANT: First BACKUP your existing files!
+   - Select all existing files
+   - Right-click > Compress to create a backup ZIP
+   - Download the backup ZIP to your computer
+4. Upload the digitalkasur.zip file to public_html/
+5. Extract the ZIP file in public_html/
+6. Make sure the uploads/ directory has 755 permissions
+7. Make sure config.php and db.php are NOT publicly accessible
+   (the .htaccess file handles this)
+
+DO NOT overwrite your existing config.php if it has 
+correct database credentials! Only replace it if the 
+new one has matching credentials.
+
+
+STEP 4: VERIFY INSTALLATION
+-----------------------------
+1. Visit https://digitalkasur.com - Homepage should load
+2. Visit https://digitalkasur.com/admin/login.php
+3. Login with admin@digitalkasur.com / admin123
+4. Change the admin password immediately!
+5. Go to Settings and verify all information
+6. Add some test content (events, services, etc.)
+
+
+STEP 5: LOGO
+--------------
+Upload your logo.webp to:
+   /assets/images/logo.webp
+
+
+STEP 6: POST-INSTALLATION
+----------------------------
+- Add content through Admin Panel
+- Verify WhatsApp floating button appears
+- Test Chatbot widget
+- Test dark mode toggle
+- Test language switcher (English/Urdu)
+- Test contact form
+- Test user registration/login
+
+
+TROUBLESHOOTING
+-----------------
+HTTP 500 Error:
+  → Check config.php DB credentials match your hosting
+  → Check error_log file in root directory
+  → Verify PHP version is 7.4+ in cPanel > PHP Version
+
+Blank Page:
+  → Check PHP error log in cPanel
+  → Set display_errors = 1 temporarily in config.php
+
+Database Error:
+  → Verify DB credentials in config.php
+  → Check database exists in cPanel > MySQL Databases
+  → Run database.sql in phpMyAdmin
+
+Images not uploading:
+  → Check uploads/ folder permissions (755)
+  → Check uploads/ subfolders exist (events, services, etc.)
+
+============================================================
+   Need help? WhatsApp: 0333-3197977
+============================================================

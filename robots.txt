@@ -1,0 +1,46 @@
+# DigitalKasur.com Robots.txt
+# https://digitalkasur.com/robots.txt
+
+# Allow all crawlers to access public content
+User-agent: *
+Allow: /
+
+# Disallow admin area
+Disallow: /admin/
+Disallow: /admin
+
+# Disallow internal includes
+Disallow: /includes/
+Disallow: /includes
+
+# Disallow uploads directory (prevent indexing of raw files)
+Disallow: /uploads/
+Disallow: /uploads
+
+# Disallow payment processing pages
+Disallow: /payment/
+Disallow: /payment
+
+# Disallow cache directory
+Disallow: /cache/
+Disallow: /cache
+
+# Disallow specific internal pages
+Disallow: /config.php
+Disallow: /db.php
+Disallow: /newsletter.php
+Disallow: /search.php?
+
+# Disallow user account pages
+Disallow: /pages/login.php
+Disallow: /pages/register.php
+Disallow: /pages/profile.php
+Disallow: /pages/logout.php
+
+# Disallow query parameter URLs for listings to avoid duplicate content
+Disallow: /pages/events.php?city=*&type=
+Disallow: /pages/business-directory.php?city=*&category=
+Disallow: /pages/jobs.php?city=*&type=
+
+# Sitemap location
+Sitemap: https://digitalkasur.com/sitemap.php
